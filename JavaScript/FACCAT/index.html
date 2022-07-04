@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Exercícios JS</title>
+
+    <style>
+
+        body {
+            background: #282A36;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+        .container {
+            display: grid;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .container div {
+            margin: 40px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 7px;
+            box-shadow: .3em .3em 0 rgba(0, 0, 0, 0.5);;
+        }
+
+        .container h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            color: #fff;
+            text-shadow:.1em .1em 0 rgba(0, 0, 0, 0.2);
+            font-style: italic;
+        }
+
+            .container button {
+            background: none;
+            color: #fff;
+            border: 2px solid #000;
+            border-radius: 7px;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            width: 170px;
+            padding: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.4s ease;
+        }
+
+        .efeito::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 0px;
+            height: 100%;
+            background: #fff;
+            color: #fff;
+            border-radius: 4px;
+            transition: all 1s ease;
+            z-index: -1;
+        }
+
+        .container button:hover{
+            color: #fff;
+        }
+
+        .efeito:hover::before{
+            width: 100%;
+        }
+
+        h3 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            margin-top: 50px;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #000;
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+            <h3>Lista de exercícios FACCAT</h3>
+
+        <div class="ex05">
+            <h2>5) Escreva um algoritmo para ler um valor (do teclado) e escrever (na tela) o seu antecessor.</h2>
+            <button type="submit"  class="btn efeito" onclick="exer05()">Verificar</button>
+        </div>
+
+        <div class="ex06">
+           <h2>6) Escreva um algoritmo para ler as dimensões de um retângulo (base e altura), calcular e escrever a
+                 área do retângulo. </h2>
+            <button type="submit" class="btn efeito" onclick="exer06()">Verificar</button>
+        </div>
+
+        <div class="ex07">
+            <h2>7) Faça um algoritmo que leia a idade de uma pessoa expressa em anos, meses e dias e escreva a idade
+                dessa pessoa expressa apenas em dias. Considerar ano com 365 dias e mês com 30 dias. </h2>
+            <button type="submit" class="btn efeito" onclick="exer07()">Verificar</button>
+        </div>
+
+        <div class="ex08">
+            <h2>8) Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos
+                brancos, nulos e válidos. Calcular e escrever o percentual que cada um representa em relação ao total
+                de eleitores. </h2>
+            <button type="submit" class="btn efeito" onclick="exer08()">Verificar</button>
+        </div>
+
+        <div class="ex09">
+            <h2>9) Escreva um algoritmo para ler o salário mensal atual de um funcionário e o percentual de reajuste.
+                Calcular e escrever o valor do novo salário. </h2>
+            <button type="submit" class="btn efeito" onclick="exer09()">Verificar</button>
+        </div>
+
+        <div class="ex10">
+            <h2>10) O custo de um carro novo ao consumidor é a soma do custo de fábrica com a porcentagem do
+                distribuidor e dos impostos (aplicados ao custo de fábrica). Supondo que o percentual do distribuidor
+                seja de 28% e os impostos de 45%, escrever um algoritmo para ler o custo de fábrica de um carro,
+                calcular e escrever o custo final ao consumidor.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer10()">Verificar</button>
+        </div>
+
+        <div class="ex11">
+            <h2>11) Uma revendedora de carros usados paga a seus funcionários vendedores um salário fixo por mês,
+                mais uma comissão também fixa para cada carro vendido e mais 5% do valor das vendas por ele
+                efetuadas. Escrever um algoritmo que leia o número de carros por ele vendidos, o valor total de suas
+                vendas, o salário fixo e o valor que ele recebe por carro vendido. Calcule e escreva o salário final do
+                vendedor.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer11()">Verificar</button>
+        </div>
+
+        <div class="ex12">
+            <h2>12) Escreva um algoritmo para ler uma temperatura em graus Fahrenheit, calcular e escrever o valor
+                correspondente em graus Celsius (baseado na fórmula abaixo): </h2>
+            <button type="submit" class="btn efeito" onclick="exer12()">Verificar</button>
+        </div>
+
+        <div class="ex13">
+            <h2>13) Faça um algoritmo que leia três notas de um aluno, calcule e escreva a média final deste aluno.
+                Considerar que a média é ponderada e que o peso das notas é 2, 3 e 5. Fórmula para o cálculo da média
+                final é: </h2>
+            <button type="submit" class="btn efeito" onclick="exer13()">Verificar</button>
+        </div>
+
+        <div class="ex14">
+            <h2>14) Ler um valor e escrever a mensagem É MAIOR QUE 10! se o valor lido for maior que 10, caso
+                contrário escrever NÃO É MAIOR QUE 10! </h2>
+            <button type="submit" class="btn efeito" onclick="exer14()">Verificar</button>
+        </div>
+
+        <div class="ex15">
+            <h2>15) Ler um valor e escrever se é positivo ou negativo (considere o valor zero como positivo).  </h2>
+            <button type="submit" class="btn efeito" onclick="exer15()">Verificar</button>
+        </div>
+
+        <div class="ex16">
+            <h2>16) As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 se forem
+                compradas pelo menos 12. Escreva um programa que leia o número de maçãs compradas, calcule e
+                escreva o custo total da compra.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer16()">Verificar</button>
+        </div>
+
+        <div class="ex17">
+            <h2>17) Ler as notas da 1a. e 2a. avaliações de um aluno. Calcular a média aritmética simples e escrever
+                uma mensagem que diga se o aluno foi ou não aprovado (considerar que nota igual ou maior que 6 o
+                aluno é aprovado). Escrever também a média calculada.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer17()">Verificar</button>
+        </div>
+
+        <div class="ex18">
+            <h2>18) Ler o ano atual e o ano de nascimento de uma pessoa. Escrever uma mensagem que diga se ela
+                poderá ou não votar este ano (não é necessário considerar o mês em que a pessoa nasceu).  </h2>
+            <button type="submit" class="btn efeito" onclick="exer18()">Verificar</button>
+        </div>
+
+        <div class="ex19">
+            <h2>19) Ler dois valores (considere que não serão lidos valores iguais) e escrever o maior deles.</h2>
+            <button type="submit" class="btn efeito" onclick="exer19()">Verificar</button>
+        </div>
+
+        <div class="ex20">
+            <h2>20) Ler dois valores (considere que não serão lidos valores iguais) e escrevê-los em ordem crescente.</h2>
+            <button type="submit" class="btn efeito" onclick="exer20()">Verificar</button>
+        </div>
+
+        <div class="ex21">
+            <h2>21) Ler a hora de início e a hora de fim de um jogo de Xadrez (considere apenas horas inteiras, sem os
+                minutos) e calcule a duração do jogo em horas, sabendo-se que o tempo máximo de duração do jogo é
+                de 24 horas e que o jogo pode iniciar em um dia e terminar no dia seguinte. </h2>
+            <button type="submit" class="btn efeito" onclick="exer21()">Verificar</button>
+        </div>
+
+        <div class="ex22">
+            <h2>22) A jornada de trabalho semanal de um funcionário é de 40 horas. O funcionário que trabalhar mais
+                de 40 horas receberá hora extra, cujo cálculo é o valor da hora regular com um acréscimo de 50%.
+                Escreva um algoritmo que leia o número de horas trabalhadas em um mês, o salário por hora e escreva
+                o salário total do funcionário, que deverá ser acrescido das horas extras, caso tenham sido trabalhadas
+                (considere que o mês possua 4 semanas exatas). </h2>
+            <button type="submit" class="btn efeito" onclick="exer22()">Verificar</button>
+        </div>
+
+       
+
+        <div class="ex24">
+            <h2>24) Ler o salário fixo e o valor das vendas efetuadas pelo vendedor de uma empresa. Sabendo-se que
+                ele recebe uma comissão de 3% sobre o total das vendas até R$ 1.500,00 mais 5% sobre o que
+                ultrapassar este valor, calcular e escrever o seu salário total. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer24()">Verificar</button>
+        </div>
+
+        <div class="ex25">
+            <h2>25) Faça um algoritmo para ler: número da conta do cliente, saldo, débito e crédito. Após, calcular e
+                escrever o saldo atual (saldo atual = saldo - débito + crédito). Também testar se saldo atual for maior
+                ou igual a zero escrever a mensagem 'Saldo Positivo', senão escrever a mensagem 'Saldo Negativo'. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer25()">Verificar</button>
+        </div>
+
+        <div class="ex26">
+            <h2>26) Faça um algoritmo para ler: quantidade atual em estoque, quantidade máxima em estoque e
+                quantidade mínima em estoque de um produto. Calcular e escrever a quantidade média ((quantidade
+                média = quantidade máxima + quantidade mínima)/2). Se a quantidade em estoque for maior ou igual
+                a quantidade média escrever a mensagem 'Não efetuar compra', senão escrever a mensagem 'Efetuar
+                compra'. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer26()">Verificar</button>
+        </div>
+
+        <div class="ex27">
+            <h2>27) Ler um valor e escrever se é positivo, negativo ou zero.
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer27()">Verificar</button>
+        </div>
+
+        <div class="ex28">
+            <h2>28) Ler 3 valores (considere que não serão informados valores iguais) e escrever o maior deles. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer28()">Verificar</button>
+        </div>
+
+        <div class="ex29">
+            <h2>29) Ler 3 valores (considere que não serão informados valores iguais) e escrever a soma dos 2
+                maiores. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer29()">Verificar</button>
+        </div>
+
+        <div class="ex30">
+            <h2>30) Ler 3 valores (considere que não serão informados valores iguais) e escrevê-los em ordem
+                crescente. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer30()">Verificar</button>
+        </div>
+
+        <div class="ex31">
+            <h2>31) Ler 3 valores (A, B e C) representando as medidas dos lados de um triângulo e escrever se formam
+                ou não um triângulo. OBS: para formar um triângulo, o valor de cada lado deve ser menor que a soma
+                dos outros 2 lados. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer31()">Verificar</button>
+        </div>
+
+        <div class="ex32">
+            <h2>32) Ler o nome de 2 times e o número de gols marcados na partida (para cada time). Escrever o nome
+                do vencedor. Caso não haja vencedor deverá ser impressa a palavra EMPATE. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer32()">Verificar</button>
+        </div>
+
+        <div class="ex33">
+            <h2>33) Ler dois valores e imprimir uma das três mensagens a seguir: <br>
+                ‘Números iguais’, caso os números sejam iguais <br>
+                ‘Primeiro é maior’, caso o primeiro seja maior que o segundo; <br>
+                ‘Segundo maior’, caso o segundo seja maior que o primeiro.   
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer33()">Verificar</button>
+        </div>
+
+        <div class="ex35">
+            <h2>35) Um posto está vendendo combustíveis com a seguinte tabela de descontos: <br>
+                Escreva um algoritmo que leia o número de litros vendidos e o tipo de combustível (codificado da
+                seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se
+                que o preço do litro da gasolina é R$ 3,30 e o preço do litro do álcool é R$ 2,90. 
+                </h2>
+            <button type="submit" class="btn efeito" onclick="exer35()">Verificar</button>
+        </div>
+
+        <div class="ex36">
+            <h2>36) Escreva um algoritmo que leia as idades de 2 homens e de 2 mulheres (considere que as idades
+                dos homens serão sempre diferentes entre si, bem como as das mulheres). Calcule e escreva a soma
+                das idades do homem mais velho com a mulher mais nova, e o produto das idades do homem mais
+                novo com a mulher mais velha. </h2>
+            <button type="submit" class="btn efeito" onclick="exer36()">Verificar</button>
+        </div>
+
+        <div class="ex37">
+            <h2>37) Uma fruteira está vendendo frutas com a seguinte tabela de preços: <br>
+                Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá
+                ainda um desconto de 10% sobre este total. Escreva um algoritmo para ler a quantidade (em Kg) de
+                morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente. 
+            </h2>
+            <button type="submit" class="btn efeito" onclick="exer37()">Verificar</button>
+        </div>
+
+        <div class="ex38">
+            <h2>38) Faça um algoritmo para ler um número que é um código de usuário. Caso este código seja
+                diferente de um código armazenado internamente no algoritmo (igual a 1234) deve ser apresentada a
+                mensagem ‘Usuário inválido!’. Caso o Código seja correto, deve ser lido outro valor que é a senha. Se
+                esta senha estiver incorreta (a certa é 9999) deve ser mostrada a mensagem ‘senha incorreta’. Caso a
+                senha esteja correta, deve ser mostrada a mensagem ‘Acesso permitido’.
+            </h2>
+            <button type="submit" class="btn efeito" onclick="exer38()">Verificar</button>
+        </div>
+
+        <div class="ex40">
+            <h2>40) Faça um algoritmo para ler: a descrição do produto (nome), a quantidade adquirida e o preço
+                unitário. Calcular e escrever o total (total = quantidade adquirida * preço unitário), o desconto e o total
+                a pagar (total a pagar = total - desconto), sabendo-se que: <br>
+                 - Se quantidade <= 5 o desconto será de 2% <br>
+                 - Se quantidade > 5 e quantidade <=10 o desconto será de 3% <br>
+                 - Se quantidade > 10 o desconto será de 5% 
+            </h2>
+            <button type="submit" class="btn efeito" onclick="exer40()">Verificar</button>
+        </div>
+
+        <div class="ex41">
+            <h2>41) Faça um algoritmo para ler as 3 notas obtidas por um aluno nas 3 verificações e a média dos
+                exercícios que fazem parte da avaliação. Calcular a média de aproveitamento, usando a fórmula abaixo
+                e escrever o conceito do aluno de acordo com a tabela de conceitos mais abaixo: 
+            </h2>
+            <button type="submit" class="btn efeito" onclick="exer41()">Verificar</button>
+        </div>
+
+        <div class="ex42">
+            <h2>42) Uma empresa quer verificar se um empregado está qualificado para a aposentadoria ou não. Para
+                estar em condições, um dos seguintes requisitos deve ser satisfeito: <br>
+                - Ter no mínimo 65 anos de idade. <br>
+                - Ter trabalhado no mínimo 30 anos. <br>
+                - Ter no mínimo 60 anos e ter trabalhado no mínimo 25 anos. <br>
+                Com base nas informações acima, faça um algoritmo que leia: o número do empregado (código), o ano
+                de seu nascimento e o ano de seu ingresso na empresa. O programa deverá escrever a idade e o tempo
+                de trabalho do empregado e a mensagem 'Requerer aposentadoria' ou 'Não requerer'.
+            </h2>
+            <button type="submit" class="btn efeito" onclick="exer42()">Verificar</button>
+        </div>
+
+
+    </div>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>

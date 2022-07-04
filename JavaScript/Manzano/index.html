@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Exercícios JS</title>
+
+    <style>
+
+        body {
+            background: #282A36;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+
+        .container {
+            display: grid;
+            width: 60%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .container div {
+            margin: 40px 0;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 7px;
+            box-shadow: .3em .3em 0 rgba(0, 0, 0, 0.5);;
+        }
+
+        .container h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: 20px;
+            color: #fff;
+            text-shadow:.1em .1em 0 rgba(0, 0, 0, 0.2);
+            font-style: italic;
+        }
+
+            .container button {
+            background: none;
+            color: #fff;
+            border: 2px solid #000;
+            border-radius: 7px;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 600;
+            width: 170px;
+            padding: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: color 0.4s ease;
+        }
+
+        .efeito::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 0px;
+            height: 100%;
+            background: #fff;
+            color: #fff;
+            border-radius: 4px;
+            transition: all 1s ease;
+            z-index: -1;
+        }
+
+        .container button:hover{
+            color: #fff;
+        }
+
+        .efeito:hover::before{
+            width: 100%;
+        }
+
+        h3 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+            margin-top: 50px;
+        }
+        
+        p {
+            font-size: 18px;
+            color: rgb(102, 102, 102);
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+            <h3>Lista de exercícios Manzano</h3>
+            <p>PAG 25: Desenvolva os algoritmos, seus respectivos diagramas de bloco e sua codificação em Português 
+                Estruturado. Você deve gravar o exercício “a” como L01A, o exercício “b” como L01B, e assim 
+                por diante: </p>
+
+        <div class="ex01">
+            <h2>a) Ler uma temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A fórmula de 
+                conversão é F ← (9 * C + 160) / 5, sendo F a temperatura em Fahrenheit e C a temperatura em Celsius.</h2>
+            <button type="submit"  class="btn efeito" onclick="exer01()">Verificar</button>
+        </div>
+        
+        <div class="ex02">
+            <h2>b) Ler uma temperatura em graus Fahrenheit e apresentá-la convertida em graus Celsius. A fórmula de 
+                conversão é C ← (F - 32) * (5/9) , sendo F a temperatura em Fahrenheit e C a temperatura em Celsius.</h2>
+            <button type="submit"  class="btn efeito" onclick="exer02()">Verificar</button>
+        </div>
+
+        <div class="ex03">
+            <h2>c) Calcular e apresentar o valor do volume de uma lata de óleo, utilizando a fórmula:
+                Volume Raio ** Altura</h2>
+            <button type="submit"  class="btn efeito" onclick="exer03()">Verificar</button>
+        </div>
+
+        <div class="ex04">
+            <h2>d) Efetuar o cálculo da quantidade de litros de combustível gasta em uma viagem, utilizando um 
+                automóvel que faz 12 Km por litro. Para obter o cálculo, o usuário deve fornecer o tempo gasto 
+                (TEMPO) e a velocidade média (VELOCIDADE) durante a viagem. Desta forma, será possível obter a 
+                distância percorrida com a fórmula DISTANCIA ← TEMPO * VELOCIDADE. Possuindo o valor da 
+                distância, basta calcular a quantidade de litros de combustível utilizada na viagem com a fórmula 
+                LITROS_USADOS ← DISTANCIA / 12. Ao final, o programa deve apresentar os valores da velocidade 
+                média (VELOCIDADE), tempo gasto na viagem (TEMPO), a distancia percorrida (DISTANCIA) e a 
+                quantidade de litros (LITROS_USADOS) utilizada na viagem.</h2>
+            <button type="submit"  class="btn efeito" onclick="exer04()">Verificar</button>
+        </div>
+
+        <div class="ex05">
+            <h2>e) Efetuar o cálculo e a apresentação do valor de uma prestação em atraso, utilizando a fórmula 
+                PRESTACAO ← VALOR + (VALOR * TAXA/100) * TEMPO).
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer05()">Verificar</button>
+        </div>
+
+        <div class="ex06">
+            <h2>f) Ler dois valores (inteiros, reais ou caracteres) para as variáveis A e B, e efetuar a troca dos valores de 
+                forma que a variável A passe a possuir o valor da variável B e a variável B passe a possuir o valor da 
+                variável A. Apresentar os valores trocados
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer06()">Verificar</button>
+        </div>
+
+        <div class="ex07">
+            <h2>g) Ler quatro números inteiros e apresentar o resultado da adição e multiplicação, baseando-se na 
+                utilização do conceito da propriedade distributiva. Ou seja, se forem lidas as variáveis A, B, C, e D, 
+                devem ser somadas e multiplicadas A com B, A com C e A com D. Depois B com C, B com D e por fim 
+                C com D. Perceba que será necessário efetuar seis operações de adição e seis operações de 
+                multiplicação e apresentar doze resultados de saída.
+                
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer07()">Verificar</button>
+        </div>
+
+        <div class="ex08">
+            <h2>h) Elaborar um programa que calcule e apresente o volume de uma caixa retangular, por meio da fórmula 
+                VOLUME ← COMPRIMENTO * LARGURA * ALTURA.
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer08()">Verificar</button>
+        </div>
+
+        <div class="ex09">
+            <h2>i) Ler dois inteiros (variáveis A e B) e imprimir o resultado do quadrado da diferença do primeiro valor pelo 
+                segundo
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer09()">Verificar</button>
+        </div>
+
+        <div class="ex10">
+            <h2>j) Elaborar um programa que efetue a apresentação do valor da conversão em real de um valor lido em 
+                dólar. O programa deve solicitar o valor da cotação do dólar e também a quantidade de dólares 
+                disponível com o usuário, para que seja apresentado o valor em moeda brasileira.
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer10()">Verificar</button>
+        </div>
+
+        <div class="ex11">
+            <h2>k) Elaborar um programa que efetue a apresentação do valor da conversão em dólar de um valor lido em 
+                real. O programa deve solicitar o valor da cotação do dólar e também a quantidade de reais disponível 
+                com o usuário, para que seja apresentado o valor em moeda americana
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer11()">Verificar</button>
+        </div>
+
+        <div class="ex12">
+            <h2>l) Elaborar um programa que efetue a leitura de três valores (A, B e C) e apresente como resultado final à 
+                soma dos quadrados dos três valores lidos.
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer12()">Verificar</button>
+        </div>
+
+        <div class="ex13">
+            <h2>m) Elaborar um programa que efetue a leitura de três valores (A,B e C) e apresente como resultado final o 
+                quadrado da soma dos três valores lidos.                
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer13()">Verificar</button>
+        </div>
+
+        <p>PAG 26: Exercícios de Extras  </p>
+
+        <div class="ex14">
+            <h2>a) Elaborar um programa de computador que efetue a leitura de quatro valores inteiros (variáveis A, B, C e 
+                D). Ao final o programa deve apresentar o resultado do produto (variável P) do primeiro com o terceiro 
+                valor, e o resultado do produto (variável P) do primeiro com o terceiro valor, e o resultado da soma 
+                (variável S) do segundo com o quarto valor               
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer14()">Verificar</button>
+        </div>
+
+        <div class="ex15">
+            <h2>b) Ler o valor correspondente ao salário mensal (variável SM) de um trabalhador e também o valor do 
+                percentual de reajuste (variável PR) a ser atribuído. Apresentar o valor do novo salário (variável NS)              
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer15()">Verificar</button>
+        </div>
+
+        <div class="ex16">
+            <h2>c) Em uma eleição sindical concorreram ao cargo de presidente três candidatos (A, B e C). Durante a 
+                apuração dos votos foram computados votos nulos e votos em branco, além dos votos válidos para 
+                cada candidato. Deve ser criado um programa de computador que efetue a leitura da quantidade de 
+                votos válidos para cada candidato, além de efetuar também a leitura da quantidade de votos nulos e 
+                votos em branco. Ao final o programa deve apresentar o número total de eleitores, considerando votos 
+                válidos, nulos e em branco; o percentual correspondente de votos válidos em relação à quantidade de 
+                eleitores; o percentual correspondente de votos válidos do candidato A em relação à quantidade de 
+                eleitores; o percentual correspondente de votos válidos do candidato B em relação à quantidade de 
+                eleitores; o percentual correspondente de votos válidos do candidato C em relação à quantidade de 
+                eleitores; o percentual correspondente de votos nulos em relação à quantidade de eleitores; e por último 
+                o percentual correspondente de votos em branco em relação à quantidade de eleitores.
+                             
+                </h2>
+            <button type="submit"  class="btn efeito" onclick="exer16()">Verificar</button>
+        </div>
+
+        <p>PAG 41: Desenvolva os algoritmos, seus respectivos diagramas de bloco e sua codificação em Portuês Estruturado (Você 
+            deve gravar o exercício “a” como L02A, o exercício “b” como L02B, e assim por diante): </p>
+
+            <div class="ex17">
+                <h2>a. Ler dois valores numéricos inteiros e apresentar o resultado da diferença do maior pelo menor valor            
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer17()">Verificar</button>
+            </div>
+
+            <div class="ex18">
+                <h2>b. Efetuar a leitura de um valor inteiro positivo ou negativo e apresentar o número lido como sendo um 
+                    valor positivo, ou seja, o programa deverá apresentar o módulo de um número fornecido. Lembre-se 
+                    de verificar se o número fornecido é menor que zero; sendo, multiplique-o por -1.             
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer18()">Verificar</button>
+            </div>
+
+            <div class="ex19">
+                <h2>c. Ler quatro valores referentes a quatro notas escolares de um aluno e imprimir uma mensagem 
+                    dizendo que o aluno foi aprovado, se o valor da média escolar for maior ou igual a 5. Se o aluno não 
+                    foi aprovado, indicar uma mensagem informando esta condição. Apresentar junto das mensagens o 
+                    valor da média do aluno para qualquer condição.           
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer19()">Verificar</button>
+            </div>
+
+            <div class="ex20">
+                <h2>d. Ler quatro valores referentes a quatro notas escolares de um aluno e imprimir uma mensagem 
+                    dizendo que o aluno foi aprovado, se o valor da média escolar for maior ou igual a 7. Se o valor da 
+                    média for menor que 7, solicitar a nota de exame, somar com o valor da média e obter nova média. 
+                    Se a nova média for maior ou igual a 5, apresentar uma mensagem dizendo que o aluno foi 
+                    aprovado em exame. Se o aluno não foi aprovado, indicar uma mensagem informando esta 
+                    condição. Apresentar com as mensagens o valor da média do aluno, para qualquer condição.           
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer20()">Verificar</button>
+            </div>
+
+            <div class="ex21">
+                <h2>e. Efetuar a leitura de três valores (variáveis A, B e C) e efetuar o cálculo da equação completa de 
+                    segundo grau, apresentando as duas raízes, se para os valores informados for possível efetuar o 
+                    referido cálculo. Lembre-se de que a variável A deve ser diferente de zero.           
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer21()">Verificar</button>
+            </div>
+
+            <div class="ex22">
+                <h2>f. Efetuar a leitura de três valores (variáveis A, B e C) e apresentá-los dispostos em ordem crescente          
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer22()">Verificar</button>
+            </div>
+
+            <div class="ex23">
+                <h2>g. Efetuar a leitura de quatro números inteiros e apresentar os números que são divisíveis por 2 e 3.          
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer23()">Verificar</button>
+            </div>
+
+            <div class="ex24">
+                <h2>h. Efetuar a leitura de cinco números inteiros e identificar o maior e o menor valor        
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer24()">Verificar</button>
+            </div>
+
+            <div class="ex25">
+                <h2>i. Elaborar um programa que efetue a leitura de um número inteiro e apresentar uma mensagem 
+                    informando se o número é par ou ímpar.         
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer25()">Verificar</button>
+            </div>
+
+            <div class="ex26">
+                <h2>j. Elaborar um programa que efetue a leitura de um valor que esteja entre a faixa de 1 a 9. Após a  
+                    leitura do valor fornecido pelo usuário, o programa deverá indicar uma de duas mensagens: "O 
+                    valor está na faixa permitida", caso o usuário forneça o valor nesta faixa, ou a mensagem "O valor 
+                    está fora da faixa permitida", caso o usuário forneça valores menores que 1 ou maiores que 9.      
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer26()">Verificar</button>
+            </div>
+
+            <div class="ex27">
+                <h2>k. Elaborar um programa que efetue a leitura de um determinado valor inteiro, e efetue a sua 
+                    apresentação, caso o valor não seja maior que três.     
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer27()">Verificar</button>
+            </div>
+
+            <div class="ex28">
+                <h2>l. Elaborar um programa que efetue a leitura do nome e do sexo de uma pessoa, apresentando com 
+                    saída uma das seguintes mensagens: "Ilmo Sr.", se o sexo informado como masculino, ou a 
+                    mensagem "Ilma Sra.", para o sexo informado como feminino. Apresente também junto da 
+                    mensagem de saudação o nome previamente informado.
+                    </h2>
+                <button type="submit"  class="btn efeito" onclick="exer28()">Verificar</button>
+            </div>
+
+            3) Desenvolva os algoritmos, seus respectivos diagramas de bloco e codificação em português 
+                estruturado. Usar na resolução dos problemas apenas estruturas de repetição do tipo enquanto
+                (Você deve gravar o exercício “a” como L03A, o exercício “b” como L03B, e assim por diante). 
+        </p>
+
+        <div class="ex29">
+            <h2>a)   Apresentar os resultados de uma tabuada de multiplicar (de 1 até 10) de um número qualquer.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer29()">Verificar</button>
+        </div>
+
+        <div class="ex30">
+            <h2>b)   Apresentar o total da soma obtida dos cem primeiros números inteiros (1+2+3+4+...+98+99+100). </h2>
+            <button type="submit" class="btn efeito" onclick="exer30()">Verificar</button>
+        </div>
+
+        <div class="ex31">
+            <h2>c)    Elaborar um programa que apresente no final o somatório dos valores pares existentes na faixa de 1 até 500 </h2>
+            <button type="submit" class="btn efeito" onclick="exer31()">Verificar</button>
+        </div>
+
+        <div class="ex32">
+            <h2> d) Apresentar todos os valores numéricos inteiros ímpares situados na faixa de 0 a 20. Para verificar se o número é ímpar, efetuar dentro da malha a verificação lógica desta condição com a instrução se, perguntando se o número é ímpar; sendo, mostre-o; não sendo, passe para o próximo passo. </h2>
+            <button type="submit" class="btn efeito" onclick="exer32()">Verificar</button>
+        </div>
+
+        <div class="ex33">
+            <h2> e) presentar os resultados das potências de 3, variando do expoente 0 até o expoente 15. Deve ser considerado  que  qualquer  número  elevado  a  zero  é  1,  e  elevado  a  1  é  ele  próprio.  Observe  que neste exercício não pode ser utilizado o operador de exponenciação do portuguol (^). </h2>
+            <button type="submit" class="btn efeito" onclick="exer33()">Verificar</button>
+        </div>
+
+        <div class="ex34">
+            <h2> f)    Elaborar  um  programa  que  apresente  como  resultado  o  valor  de  uma  potência  de  uma  base qualquer elevada a um expoente qualquer, ou seja, de BE, em que B é o valor da base e E o valor do expoente. Observe que neste exercício não pode ser utilizado o operador de exponenciação do portuguol (^).  </h2>
+            <button type="submit" class="btn efeito" onclick="exer34()">Verificar</button>
+        </div>
+
+        <div class="ex35">
+            <h2> g) Escreva um programa que apresente a série de Fibonacci até o décimo quinto termo. A série de
+                Fibonacci é formada pela seqüência: 1, 1, 2, 3, 5, 8, 13, 21, 34, ..., etc. Esta série se caracteriza
+                pela soma de um termo atual com o seu anterior subseqüente, para que seja formado o próximo
+                valor da seqüência. Portanto começando com os números 1, 1 o próximo termo é 1+1=2, o próximo
+                é 1+2=3, o próximo é 2+3=5, o próximo 3+5=8, etc.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer35()">Verificar</button>
+        </div>
+
+        <div class="ex36">
+            <h2>h) Elaborar um programa que apresente os valores de conversão de graus Celsius em Fahrenheit, de
+                10 em 10 graus, iniciando a contagem em 10 graus Celsius e finalizando em 100 graus Celsius. O
+                programa deve apresentar os valores das duas temperaturas.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer36()">Verificar</button>
+        </div>
+
+        <div class="ex37">
+            <h2>i) Elaborar um programa que efetue a leitura de 10 valores numéricos e apresente no final o total do
+                somatório e a média aritmética dos valores lidos. </h2>
+            <button type="submit" class="btn efeito" onclick="exer37()">Verificar</button>
+        </div>
+
+        <div class="ex38">
+            <h2>j) Elaborar um programa que apresente os resultados da soma e da média aritmética dos valores
+                pares situados na faixa numérica de 50 a 70. </h2>
+            <button type="submit" class="btn efeito" onclick="exer38()">Verificar</button>
+        </div>
+
+        <div class="ex39">
+            <h2>k) Elaborar um programa que possibilite calcular a área total de uma residência (sala, cozinha,
+                banheiro, quartos, área de serviço, quintal, garagem, etc.). O programa deve solicitar a entrada do
+                nome, a largura e o comprimento de um determinado cômodo. Em seguida, deve apresentar a área do cômodo lido e também uma mensagem solicitando do usuário a confirmação de continuar
+                calculando novos cômodos. Caso o usuário responda “NAO”, o programa deve apresentar o valor
+                total acumulado da área residencial. </h2>
+            <button type="submit" class="btn efeito" onclick="exer39()">Verificar</button>
+        </div>
+
+        <div class="ex40">
+            <h2>l) Elaborar um programa que efetue a leitura de valores positivos inteiros até que um valor negativo
+                seja informado. Ao final devem ser apresentados o maior e o menor valores informados pelo
+                usuário. </h2>
+            <button type="submit" class="btn efeito" onclick="exer40()">Verificar</button>
+        </div>
+
+        <p>
+            2) Desenvolva os algoritmos, seus respectivos diagramas de bloco e codificação em português 
+                estruturado. Usar na resolução dos problemas apenas estruturas de repetição do tipo repita (Você 
+                deve gravar o exercício “a” como L04A, o exercício “b” como L04B, e assim por diante).
+        </p>
+
+        <div class="ex41">
+            <h2>a) Apresentar os quadrados dos números inteiros de 15 a 200. </h2>
+            <button type="submit" class="btn efeito" onclick="exer41()">Verificar</button>
+        </div>
+
+        <div class="ex42">
+            <h2>b) Elaborar um programa que apresente no final o somatório dos valores pares existentes na faixa de 
+                1 até 500.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer42()">Verificar</button>
+        </div>
+
+        <div class="ex43">
+            <h2>c) Apresentar todos os números divisíveis por 4 que sejam menores que 200. Para verificar se o 
+                número é divisível por 4, efetuar dentro da malha a verificação lógica desta condição com a 
+                instrução se, perguntando se o número é divisível; sendo, mostre-o; não sendo, passe para o 
+                próximo passo. A variável que controlará o contador deve ser iniciada com o valor 1.   </h2>
+            <button type="submit" class="btn efeito" onclick="exer43()">Verificar</button>
+        </div>
+
+        <div class="ex44">
+            <h2>d) Elaborar um programa que efetue o cálculo e no final apresente o somatório do número de grãos de 
+                trigo que se pode obter num tabuleiro de xadrez, obedecendo à seguinte regra: colocar um grão de 
+                trigo no primeiro quadro e nos quadros seguintes o dobro do quadro anterior. Ou seja, no primeiro 
+                quadro coloca-se 1 grão, no segundo quadro colocam-se 2 grãos (neste momento têm-se 3 grãos), 
+                no terceiro quadro colocam-se 4 grãos (tendo neste momento 7 grãos), no quarto colocam-se 8 
+                grãos (tendo-se então 15 grãos) até atingir o sexagésimo quarto (64o
+                ) quadro. Utilize variáveis do 
+                tipo real como acumuladores.   </h2>
+            <button type="submit" class="btn efeito" onclick="exer44()">Verificar</button>
+        </div>
+
+        <div class="ex45">
+            <h2>e) Elaborar um programa que efetue a leitura de 15 valores numéricos inteiros e no final apresente o 
+                total do somatório da fatorial de cada valor lido.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer45()">Verificar</button>
+        </div>
+
+        <div class="ex">
+            <h2>f) Elaborar um programa que efetue a leitura sucessiva de valores numéricos e apresente no final o 
+                total do somatório, a média aritmética e o total de valores lidos. O programa deve fazer as leituras 
+                dos valores enquanto o usuário estiver fornecendo valores positivos. Ou seja, o programa deve 
+                parar quando o usuário fornecer um valor negativo. Não se esqueça que o usuário pode entrar 
+                como primeiro número um número negativo, portanto, cuidado com a divisão por zero no cálculo da 
+                média.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer()">Verificar</button>
+        </div>
+
+        <div class="ex46">
+            <h2>g) Elaborar um programa que apresente como resultado o valor do fatorial dos valores ímpares 
+                situados na faixa numérica de 1 a 10.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer46()">Verificar</button>
+        </div>
+
+        <div class="ex47">
+            <h2>h) Elaborar um programa que possibilite calcular a área total de uma residência (sala, cozinha, 
+                banheiro, quartos, área de serviço, quintal, garagem, etc.). O programa deve solicitar a entrada do 
+                nome, a largura e o comprimento de um determinado cômodo. Em seguida, deve apresentar a área 
+                do cômodo lido e também uma mensagem solicitando do usuário a confirmação de continuar 
+                calculando novos cômodos. Caso o usuário responda “NAO”, o programa deve apresentar o valor 
+                total acumulado da área residencial.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer47()">Verificar</button>
+        </div>
+
+        <div class="ex48">
+            <h2>i) Elaborar um programa que efetue a leitura de valores positivos inteiros até que um valor negativo 
+                seja informado. Ao final devem ser apresentados o maior e o menor valores informados pelo 
+                usuário.   </h2>
+            <button type="submit" class="btn efeito" onclick="exer48()">Verificar</button>
+        </div>
+
+        <div class="ex49">
+            <h2>j) Elaborar um programa que apresente o resultado inteiro da divisão de dois números quaisquer. 
+                Para a elaboração do programa, não utilizar em hipótese alguma o conceito do operador aritmético 
+                DIV. A solução deve ser alcançada com a utilização de looping. Ou seja, o programa deve 
+                apresentar como resultado (quociente) quantas vezes o divisor cabe no dividendo. </h2>
+            <button type="submit" class="btn efeito" onclick="exer49()">Verificar</button>
+        </div>
+
+        <p>
+            3) Desenvolva os algoritmos, seus respectivos diagramas de bloco e codificação em português 
+            estruturado. Usar na resolução dos problemas apenas estruturas de repetição do tipo para (Você 
+            deve gravar o exercício “a” como L05A, o exercício “b” como L05B, e assim por diante).
+        </p>
+
+        <div class="ex50">
+            <h2>a) Apresentar os quadrados dos números inteiros de 15 a 200.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer50()">Verificar</button>
+        </div>
+
+        <div class="ex51">
+            <h2>b) Apresentar os resultados de uma tabuada de multiplicar (de 1 até 10) de um número qualquer.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer51()">Verificar</button>
+        </div>
+
+        <div class="ex52">
+            <h2>c) Apresentar o total da soma obtida dos cem primeiros números inteiros (1+2+3+4+...+98+99+100).  </h2>
+            <button type="submit" class="btn efeito" onclick="exer52()">Verificar</button>
+        </div>
+
+        <div class="ex53">
+            <h2>d) Elaborar um programa que apresente no final o somatório dos valores pares existentes na faixa de 
+                1 até 500.  </h2>
+            <button type="submit" class="btn efeito" onclick="exer53()">Verificar</button>
+        </div>
+
+        <div class="ex54">
+            <h2>e) Apresentar todos os valores numéricos inteiros ímpares situados na faixa de 0 a 20. Para verificar 
+                se o número é ímpar, efetuar dentro da malha a verificação lógica desta condição com a instrução 
+                se, perguntando se o número é ímpar; sendo, mostre-o; não sendo, passe para o próximo passo. </h2>
+            <button type="submit" class="btn efeito" onclick="exer54()">Verificar</button>
+        </div>
+
+        <div class="ex55">
+            <h2>f) Apresentar todos os números divisíveis por 4 que sejam menores que 200. Para verificar se o 
+                número é divisível por 4, efetuar dentro da malha a verificação lógica desta condição com a 
+                instrução se, perguntando se o número é divisível; sendo, mostre-o; não sendo, passe para o 
+                próximo passo. A variável que controlará o contador deve ser iniciada com o valor 1. </h2>
+            <button type="submit" class="btn efeito" onclick="exer55()">Verificar</button>
+        </div>
+
+        <div class="ex56">
+            <h2>g) Apresentar os resultados das potências de 3, variando do expoente 0 até o expoente 15. Deve ser 
+                considerado que qualquer número elevado a zero é 1, e elevado a 1 é ele próprio. Observe que 
+                neste exercício não pode ser utilizado o operador de exponenciação do portuguol (^). </h2>
+            <button type="submit" class="btn efeito" onclick="exer56()">Verificar</button>
+        </div>
+
+        <div class="ex57">
+            <h2>h) Elaborar um programa que apresente como resultado o valor de uma potência de uma base 
+                qualquer elevada a um expoente qualquer, ou seja, de BE
+                , em que B é o valor da base e E o valor 
+                do expoente. Observe que neste exercício não pode ser utilizado o operador de exponenciação do 
+                portuguol (^). </h2>
+            <button type="submit" class="btn efeito" onclick="exer57()">Verificar</button>
+        </div>
+
+        <div class="ex58">
+            <h2>i) Escreva um programa que apresente a série de Fibonacci até o décimo quinto termo. A série de 
+                Fibonacci é formada pela seqüência: 1, 1, 2, 3, 5, 8, 13, 21, 34, ..., etc. Esta série se caracteriza 
+                pela soma de um termo atual com o seu anterior subseqüente, para que seja formado o próximo 
+                valor da seqüência. Portanto começando com os números 1, 1 o próximo termo é 1+1=2, o próximo 
+                é 1+2=3, o próximo é 2+3=5, o próximo 3+5=8, etc. </h2>
+            <button type="submit" class="btn efeito" onclick="exer58()">Verificar</button>
+        </div>
+
+        <div class="ex59">
+            <h2>j)Elaborar um programa que apresente os valores de conversão de graus Celsius em Fahrenheit, de 
+                10 em 10 graus, iniciando a contagem em 10 graus Celsius e finalizando em 100 graus Celsius. O 
+                programa deve apresentar os valores das duas temperaturas. A fórmula de conversão ,
+                sendo F a temperatura em Fahrenheit e C a temperatura em Celsius. </h2>
+            <button type="submit" class="btn efeito" onclick="exer59()">Verificar</button>
+        </div>
+
+        <div class="ex60">
+            <h2>k) Elaborar um programa que apresente como resultado o valor do fatorial dos valores ímpares 
+                situados na faixa numérica de 1 a 10. </h2>
+            <button type="submit" class="btn efeito" onclick="exer60()">Verificar</button>
+        </div>
+
+
+
+    </div>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>
